@@ -1,0 +1,26 @@
+<!--navbar-->
+
+<div class="header">
+  <div class="header1">
+    <div class="">
+      <%=image_tag('Vector.jpg')%>
+    </div>
+    <div class="header-text">
+      Maze
+    </div>
+
+  </div>
+  <div class="header2">
+    <form class="header-search" action="">
+      <input class="header-input" type="search" placeholder="Search">
+      <%#=image_tag('search.jpg')%>
+    </form>
+  </div>
+</div>
+<!--navbar end-->
+
+<div class="main">
+<h1>New Article</h1>
+
+<%= render "form", article: @article %>
+</div>
