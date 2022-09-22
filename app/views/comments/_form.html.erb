@@ -1,13 +1,17 @@
-<%= form_with model: [ @article, @article.comments.build ] do |form| %>
-  <p>
-    <%= form.label :commenter %><br>
-    <%= form.text_field :commenter %>
-  </p>
-  <p>
-    <%= form.label :body %><br>
+<%= form_with model: [@article, @article.comments.build] do |form| %>
+  <!--  <p>-->
+  <!--    <%#= form.label :commenter %><br>-->
+  <%#= form.text_field :commenter %>
+  <!--  </p>-->
+  <div class="comment-input-box-sendbutton">
+    <%#= form.label :body %>
     <%= form.text_area :body %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
+    <div>
+      <%#= form.submit  %>
+      <%= button_tag(class: "btn btn-primary btn-lg",type: "submit", style: "background-color: #EAF4FF") do %>
+        <%= image_tag("send1.png") %>
+      <% end %>
+    </div>
+  </div>
+
 <% end %>

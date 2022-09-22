@@ -1,9 +1,38 @@
-<p>
-  <strong>Commenter:</strong>
-  <%= comment.commenter %>
-</p>
+<!--<p>-->
+<!--  <strong>Commenter:</strong>-->
+  <%#= comment.commenter %>
+<!--</p>-->
+<!--<hr size="1" width="100%" color="lightgrey">-->
 
-<p>
-  <strong>Comment:</strong>
-  <%= comment.body %>
-</p>
+<div class="adjustcommentlikes">
+<!--  <strong>Comment:</strong>-->
+  <div><%= comment.body %></div>
+  <div>
+
+    <div class="dropdown">
+      <!--            <button class="dropbtn">Dropdown</button>-->
+      <div class="dropbtn"><%= image_tag('Ellipse 4.png') %></div>
+      <div class="dropbtn"><%= image_tag('Ellipse 4.png') %></div>
+      <div class="dropbtn"><%= image_tag('Ellipse 4.png') %></div>
+      <div class="dropdown-content">
+        <%= link_to 'Delete', article_comment_path(comment.article,comment) ,data: {
+          turbo_method: :delete,
+          turbo_confirm: "Are you sure?"
+        }
+        %>
+      </div>
+    </div>
+    <div class=" comments-page-likes-time">
+
+      <div><%= image_tag('redlike.png') %></div>
+      <div class="custom-text-styles">2h</div>
+    </div>
+  </div>
+
+</div>
+
+
+</div>
+
+
+<hr size="1" width="100%" color="lightgrey">

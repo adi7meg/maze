@@ -1,67 +1,27 @@
-<!--navbar-->
-
-<div class="header">
-  <div class="header1">
-    <div class="">
-      <%=image_tag('Vector.jpg')%>
-    </div>
-    <div class="header-text">
-      Maze
-    </div>
-
-  </div>
-  <div class="header2">
-    <form class="header-search" action="">
-      <input class="header-input" type="search" placeholder="Search">
-      <%#=image_tag('search.jpg')%>
-    </form>
-  </div>
-</div>
-<!--navbar end-->
+<%= render 'layouts/navbar' %>
 
 <div class="main">
 
   <!--    createpost-->
   <div class="create-post-container">
-    <div class="create-post-field" >
-      <!--    <input class="header-input" type="search" placeholder="What's happening?">-->
-
       <%= render "form", article: @articleCreatePostForm %>
-
-
-
-    </div>
-    <div class="live-photos-feelings-post-container">
-      <div class="live-photos-feelings-container">
-
-        <div><%= image_tag('video.png') %></div>
-        <div class="custom-text-styles">Live Video</div>
-        <div><%= image_tag('image.png') %></div>
-        <div class="custom-text-styles">Photo/Video</div>
-        <div><%= image_tag('feeling.png') %></div>
-        <div class="custom-text-styles">Feeling</div>
-      </div>
-      <div><button class="send-button" >Post </button></div>
-    </div>
-
   </div>
   <!--create post end-->
 
   <!--  POST LOOP START-->
   <% @articles.each do |article| %>
-
     <div class="post1">
       <div class="post1-heading-dropdown">
         <div ><h3>Amazing Landscape from Cyphen Tower</h3></div>
 
-        <div class="dropdown-menu">
+        <div class="">
           <div class="dropdown">
 <!--            <button class="dropbtn">Dropdown</button>-->
             <div class="dropbtn"><%= image_tag('Ellipse 4.png') %></div>
             <div class="dropbtn"><%= image_tag('Ellipse 4.png') %></div>
             <div class="dropbtn"><%= image_tag('Ellipse 4.png') %></div>
             <div class="dropdown-content">
-              <%= link_to "Edit", edit_article_path(article) %></li>
+              <%= link_to "Edit", edit_article_path(article) %>
               <%= link_to "Destroy", article_path(article), data: {
                 turbo_method: :delete,
                 turbo_confirm: "Are you sure?"
@@ -76,13 +36,14 @@
 
       </div>
 
-      <div class="align-text-right custom-text-styles">15h. Public</div>
-      <div class="align-text-right" ><p class="post-content"><%= link_to article.title, article %>Lorem ipsum dolor sit amet. Id laborum deleniti ea laudantium doloribus ab sunt earum qui consectetur officiis ea vero praesentium. Est minima perspiciatis et rerum autem ad cupiditate unde. Aut praesentium ipsa aut sint doloribus id similique veniam qui fugit voluptatem cum voluptas omnis. Qui pariatur aperiam quo numquam corporis  corporis fugiat qui molestias sequi et omnis rerum ut Quis similique cum delectus galisum. </p>
+      <div class="align-text-right custom-text-styles"><%= time_ago_in_words(article.created_at)
+      %>&nbsp ago</div>
+      <div class="align-text-right" ><p class="post-content"><%= link_to article.body, article %></p>
       </div>
       <div class="likes-comments-container align-text-right">
         <div class="likes-comments-count">
           <div class="custom-text-styles">2 likes</div>
-          <div class="custom-text-styles"> 3 comments</div>
+          <div class="custom-text-styles">  <%= article.comments.size %> comments</div>
 
         </div>
         <hr size="1" width="100%" color="lightgrey">
@@ -90,13 +51,15 @@
           <div><%= image_tag('like.png') %></div>
           <div class="custom-text-styles">Like</div>
           <div><%= image_tag('comment.png') %></div>
-          <div class="custom-text-styles">Comment</div>
+          <div class="custom-text-styles"><%= link_to "Comment", article %></div>
         </div>
         <hr size="1" width="100%" color="lightgrey">
 
-        <div class="comment-input-box-sendbutton" >
-          <div><input class="header-input" type="search" placeholder="Write a comment"></div>
-          <div> <%= image_tag('send (1).png') %></div>
+        <div>
+          <% @article=article %>
+          <%= render 'comments/form' %>
+
+<!--          <div> <%#= image_tag('send (1).png') %></div>-->
         </div>
       </div>
 
@@ -105,48 +68,49 @@
         <!--  comment1-->
         <hr size="1" width="100%" color="lightgrey">
         <div class="style-comments-view">
-          <div class="align-text-right custom-text-styles">Great Work Guys!</div>
+
+          <div class="align-text-right custom-text-styles">
+            <%= article.comments.order("created_at DESC").first&.body %>
+
+
+          </div>
           <div class=" comments-page-likes-time">
             <div><%= image_tag('redlike.png') %></div>
             <div class="custom-text-styles">2h</div>
           </div>
         </div>
-        <!--  comment2-->
         <hr size="1" width="100%" color="lightgrey">
-        <div class="style-comments-view">
-          <div class="align-text-right custom-text-styles">Great Work Guys!</div>
-          <div class=" comments-page-likes-time">
-            <div><%= image_tag('redlike.png') %></div>
-            <div class="custom-text-styles">2h</div>
-          </div>
-        </div>
-        <!--  comment3-->
-        <hr size="1" width="100%" color="lightgrey">
-        <div class="style-comments-view">
-          <div class="align-text-right custom-text-styles">Great Work Guys!</div>
-          <div class=" comments-page-likes-time">
-            <div><%= image_tag('redlike.png') %></div>
-            <div class="custom-text-styles">2h</div>
-          </div>
-        </div>
-
-        <hr size="1" width="100%" color="lightgrey">
-
-
-
-
       </div>
       <!--COMMENTS END-->
 
 
     </div>
-
   <% end %>
   <!--  POST LOOP END-->
 
 
 </div>
 
+
+<!--left side navbar start-->
+<div class="leftside-navbar">
+  <div><button  type="button" class="btn btn-outline-primary btn-lg  bootstrap-button" style=" border: none;"><%= image_tag('feed.1.png') %>&nbsp;&nbsp; <span>Feed</span></button></div>
+  <div><button type="button" class="btn btn-outline-primary btn-lg  bootstrap-button" style=" border: none;"><%= image_tag('profile.png') %>&nbsp;&nbsp; <span>Profile</span></button></div>
+  <div><button type="button" class="btn btn-outline-primary btn-lg  bootstrap-button" style=" border: none;"><%= image_tag('manageUser.png') %>&nbsp;&nbsp; <span>Manage Users</span></button></div>
+  <div><button type="button" class="btn btn-outline-primary btn-lg  bootstrap-button" style=" border: none;"><%= image_tag('logout.png') %>&nbsp;&nbsp; <span><%= link_to "Sign Out", destroy_user_session_path, 'data-turbo-method': :delete%></span></button></div>
+</div>
+
+<!--left side navbar end-->
+
+
+<!--right side navbar start-->
+<div class="rightside-navbar">
+  <div class="rightside-Users"></div>
+  <div class="rightside-Users"></div>
+  <div class="rightside-Users"></div>
+</div>
+
+<!--right side navbar end-->
 
 
 

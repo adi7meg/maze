@@ -1,21 +1,36 @@
 <%= form_with model: article do |form| %>
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-    <% article.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
+<!--  <div>-->
+<!--    <%#= form.label :title %><br>-->
+    <%#= form.text_field :title %>
+    <%# article.errors.full_messages_for(:title).each do |message| %>
+<!--      <div><%#= message %></div>-->
+    <%# end %>
+<!--  </div>-->
 
-  <div>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %><br>
+  <div class="create-post-containerxx">
+<!--    <%#= form.label :body %><br>-->
+    <%= form.text_area :body, placeholder: "What's Happening..." %>
+    <div class="live-photos-feelings-post-container">
+      <div class="live-photos-feelings-container">
+
+        <div><%= image_tag('video.png') %></div>
+        <div class="custom-text-styles">Live Video</div>
+        <div><%= image_tag('image.png') %></div>
+        <div class="custom-text-styles">Photo/Video</div>
+        <div><%= image_tag('feeling.png') %></div>
+        <div class="custom-text-styles">Feeling</div>
+      </div>
+      <div>
+        <%= form.submit  "Post"%>
+      </div>
+    </div>
+
     <% article.errors.full_messages_for(:body).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+
+
+
 <% end %>

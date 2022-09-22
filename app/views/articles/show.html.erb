@@ -1,39 +1,95 @@
-<!--navbar-->
+<%= render 'layouts/navbar' %>
 
-<div class="header">
-  <div class="header1">
-    <div class="">
-      <%=image_tag('Vector.jpg')%>
+<!--  main-->
+<div class="main">
+  <!--    posts-->
+  <div class="post1">
+    <div class="post1-heading-dropdown">
+      <div>
+<!--        <h3>Amazing Landscape from Cyphen Tower</h3>-->
+
+      </div>
+      <div>
+        <div class="dropdown">
+          <!--            <button class="dropbtn">Dropdown</button>-->
+          <div class="dropbtn"><%= image_tag('Ellipse 4.png') %></div>
+          <div class="dropbtn"><%= image_tag('Ellipse 4.png') %></div>
+          <div class="dropbtn"><%= image_tag('Ellipse 4.png') %></div>
+          <div class="dropdown-content">
+            <%= link_to "Edit", edit_article_path(@article) %>
+            <%= link_to "Destroy", article_path(@article), data: {
+              turbo_method: :delete,
+              turbo_confirm: "Are you sure?"
+            } %>
+
+          </div>
+        </div>
+
+
+      </div>
+
     </div>
-    <div class="header-text">
-      Maze
+
+    <div class="align-text-right custom-text-styles"><%= time_ago_in_words(@article.created_at)
+    %>&nbsp ago.</div>
+    <div class="align-text-right">
+      <p class="post-content">
+      <h1><%= @article.title %></h1>
+      <p><%= @article.body %></p> </p> </p>
+
     </div>
+    <div class="likes-comments-container align-text-right">
+      <div class="likes-comments-count">
+        <div class="custom-text-styles">2 likes</div>
+        <div class="custom-text-styles"> <%= @article.comments.size %> comments</div>
+
+      </div>
+      <hr size="1" width="100%" color="lightgrey">
+      <div class="likes-comments">
+        <div><%= image_tag('like.png') %></div>
+        <div class="custom-text-styles">Like</div>
+        <div><%= image_tag('comment.png') %></div>
+        <div class="custom-text-styles">Comment</div>
+      </div>
+      <hr size="1" width="100%" color="lightgrey">
+
+      <div class="comment-input-box-sendbutton">
+        <%= render 'comments/form' %>
+
+      </div>
+    </div>
+    <!--post end-->
+
+    <!--    comments start-->
+    <div class="align-text-right custom-text-styles "><h2>Comments</h2>
+      <!--  comment1-->
+      <hr size="1" width="100%" color="lightgrey">
+      <div class="style-comments-view">
+        <div class="align-text-right custom-text-styles">
+
+          <%= render @article.comments.order("created_at DESC")  %>
+
+
+
+
+        </div>
+
+
+      <hr size="1" width="100%" color="lightgrey">
+    </div>
+
 
   </div>
-  <div class="header2">
-    <form class="header-search" action="">
-      <input class="header-input" type="search" placeholder="Search">
-      <%#=image_tag('search.jpg')%>
-    </form>
-  </div>
+  <!--  post end-->
 </div>
-<!--navbar end-->
-<h1><%= @article.title %></h1>
 
-<p><%= @article.body %></p>
 
-<ul>
-  <li><%= link_to "Edit", edit_article_path(@article) %></li>
-  <li><%= link_to "Destroy", article_path(@article), data: {
-    turbo_method: :delete,
-    turbo_confirm: "Are you sure?"
-  } %></li>
-</ul>
 
-<h2>Comments</h2>
-<%= render @article.comments %>
 
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
 
-</div>
+
+
+
+
+
+

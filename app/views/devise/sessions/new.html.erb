@@ -1,0 +1,47 @@
+<!--background image start-->
+<div class="login-bg">
+  <%= image_tag('image 64.png') %>
+</div>
+<!--background image end-->
+
+<!--login navbar start-->
+<div class="login-header">
+  <div><%= image_tag ('Frame 39.png') %> </div>
+  <div>Maze</div>
+</div>
+<!--login navbar end-->
+
+<!--login form start-->
+<div class="login-div">
+  <div><%= image_tag('Login.png') %></div>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field email-label-input" >
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field password-label-input">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="field remember-me">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end %>
+
+    <div class="actions Log-in-button">
+      <%= f.submit "Log in" %>
+    </div>
+  <% end %>
+  <br>
+  <br>
+<div class="dont-have-account">Don't have an account?</div>
+  <div><%= render "devise/shared/links" %></div>
+
+</div>
+<!--login form end-->
+
+<hr style="height:2px;border-width:0" class="navbar-line">

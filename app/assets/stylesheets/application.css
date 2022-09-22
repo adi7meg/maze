@@ -9,11 +9,15 @@ body{
     line-height: 17px;
     color: #606165;
 }
+.post1 a{
+    color: #606165;
+    text-decoration: none;
+}
 
 /*NAVBAR START*/
 .header{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     overflow: hidden;
     background-color: white;
     height:100px;
@@ -64,11 +68,11 @@ body{
     margin: 10px;
     display: flex;
     flex-direction: column;
-    /*justify-content: space-evenly;*/
-    height: 600px;
+    height: auto;
     width: 1041px;
     border: 1px solid #FFFFFF;
     background: #FFFFFF;
+    border-radius: 14px;
 }
 .post1-heading-dropdown {
     font-family: 'Montserrat';
@@ -100,8 +104,19 @@ body{
 }
 
 .create-post-field{
-    text-align: center;
+    /*text-align: center;*/
 }
+
+.create-post-containerxx textarea{
+    padding: 0 10px;
+    border: none;
+    background-color: #F5F6F8;;
+    border-radius: 24px;
+    width: 989px;
+    height: 50px;
+    font-size: 1.1rem;
+}
+
 .likes-comments-count{
     width: 150px;
     display: flex;
@@ -114,42 +129,68 @@ body{
     display: flex;
     justify-content: space-between;
 }
-.create-post-field input{
-    padding: 0 10px;
+.create-post-containerxx input{
     border: none;
-    background-color: #F5F6F8;;
-    border-radius: 24px;
-    width: 989px;
-    height: 50px;
+    background-color: #377DFF;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    color: white;
+    border-radius: 10px;
+    /*padding: 0 10px;*/
+    /*border: none;*/
+    /*background-color: #F5F6F8;;*/
+    /*border-radius: 24px;*/
+    /*width: 989px;*/
+    /*height: 50px;*/
 }
 .comment-input-box-sendbutton {
+    padding: 0 20px;
+    width: 1041px;
     margin: 10px 0;
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
-.comment-input-box-sendbutton input{
+.comment-input-box-sendbutton textarea{
+
     padding: 0 10px;
     border: none;
-    background-color: #F5F6F8;;
+    background-color: #F5F6F8;
     border-radius: 24px;
     width: 932px;
     height: 46px;
 }
 .create-post-container {
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*justify-content: center;*/
+    /*height: 270px;*/
+    /*width: 1041px;*/
+    /*background: #FFFFFF;*/
+    /*margin: 29px;*/
+    border-radius: 14px;
+    border: 1px solid #FFFFFF;
+
+
+}
+.create-post-containerxx{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 270px;
+    height: 165px;
     width: 1041px;
-    border: 1px solid #FFFFFF;
-    margin: 10px;
-    border-radius: 14px;
     background: #FFFFFF;
-
+    margin: 29px;
+    border-radius: 14px;
+    border: 1px solid #FFFFFF;
 }
 .likes-comments-container{
-    height: 150px;
+    height: 240px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -157,7 +198,6 @@ body{
 }
 
 .send-button{
-
     border: none;
     background-color: #377DFF;
     padding: 16px 32px;
@@ -175,6 +215,7 @@ body{
     color: white;
 }
 .live-photos-feelings-post-container{
+    padding: 0 21px;
     display: flex;
     justify-content: space-between;
 }
@@ -190,11 +231,17 @@ body{
 
 .style-comments-view{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 .comments-page-likes-time{
     display: flex;
     flex-direction: column;
+}
+
+.adjustcommentlikes{
+    display: flex;
+    justify-content: space-between;
 }
 
 
@@ -203,8 +250,6 @@ body{
 
 
 /*dropdown css*/
-
-
 
 .dropdown {
     position: relative;
@@ -234,7 +279,7 @@ body{
 .dropdown-content {
     display: none;
     position: absolute;
-    left: -179px;
+    left: -133px;
     top: 18px;
     background-color: #f1f1f1;
     min-width: 160px;
@@ -254,3 +299,212 @@ body{
 .dropdown:hover .dropdown-content {display: block;}
 
 /*.dropdown:hover .dropbtn {background-color: #3e8e41;}*/
+
+
+/*left side navbar start*/
+.leftside-navbar{
+    display: flex;
+    /*border: 1px solid red;*/
+    position: absolute;
+    height: 400px;
+    top: 100px;
+    width: 368px;
+    flex-direction: column;
+    align-items: center;
+}
+.leftside-navbar-feed {
+    margin-bottom: 20px;
+    display: flex;
+    height: 59px;
+    width: 239px;
+
+    border-radius: 14px;
+    align-items: center;
+    color: #606165;
+    justify-content: center;
+}
+.leftside-navbar-feed> :hover{
+    height: 59px;
+    width: 239px;
+    background: #377DFF;
+    color: #FFFFFF;
+    border-radius: 14px
+}
+.leftside-navbar-feed p{
+     font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    letter-spacing: 0.04em;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.bootstrap-button{
+    width: 239px;
+    height: 59px;
+    margin: 0 0 20px 0;
+}
+.bootstrap-button> span{
+    color: #606165;
+}
+.bootstrap-button> img{
+    color: #606165;
+}
+/*left side navbar end*/
+
+
+/*login page css start*/
+.login-header{
+    /*border: 1px solid red;*/
+    width: 242px;
+    display: flex;
+    position: absolute;
+    top: 1px;
+    left: 0;
+    justify-content: space-evenly;
+    height: 79px;
+    align-items: center;
+}
+.login-header> div{
+    Font-weight: 700;
+    font-size: 35.9403px;
+    letter-spacing: 0.03em;
+    color: #FFFFFF;
+}
+.login-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 200px;
+    left: 767px;
+    background: linear-gradient(152.97deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+    backdrop-filter: blur(42px);
+    width: 458px;
+    height: 646px;
+    border-radius: 16px;
+}
+.email-label-input{
+    margin: 30px 0;
+}
+.email-label-input> label{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+
+    letter-spacing: -0.02em;
+
+    color: #F9FAFB;
+}
+.email-label-input> input{
+    height: 48px;
+    width: 358px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 5px;
+}
+
+.password-label-input{
+    margin: 30px 0;
+}
+
+.password-label-input> label{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    letter-spacing: -0.02em;
+    color: #F9FAFB;
+}
+
+.password-label-input> input{
+    height: 48px;
+    width: 358px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 5px;
+}
+.remember-me{
+    margin: 20px 0;
+}
+.remember-me> input{
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #D1D1D1;
+    border-radius: 2px;
+}
+.remember-me> label{
+    width: 105px;
+    height: 20px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+}
+.Log-in-button> input{
+    width: 206px;
+    height: 48px;
+    left: 541px;
+    top: 614px;
+    background: #377DFF;
+    border-radius: 5px;
+    color: #FFFFFF;
+}
+.dont-have-account{
+    color: #FFFFFF;
+}
+.login-bg> img{
+    width: 100%;
+    height: 100vh;
+}
+.navbar-line{
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    top: 99px;
+    background-image: linear-gradient(to right, #377DFF,#EFF5FF );
+}
+/*login page css end*/
+
+
+/*signup page css start*/
+.signup-div{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    top: 200px;
+    left: 425px;
+    background: linear-gradient(152.97deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+    backdrop-filter: blur(42px);
+    width: 1137px;
+    height: 646px;
+    border-radius: 16px;
+}
+.Sign-up-button> input{
+    width: 206px;
+    height: 48px;
+    left: 541px;
+    top: 614px;
+    background: #377DFF;
+    border-radius: 5px;
+    color: #FFFFFF;
+}
+.signup-left{
+   margin-right: 50px;
+}
+
+.signup-right{
+    margin-right: 50px;
+}
+/*signup page css end*/

@@ -1,0 +1,2 @@
+class AddNewColumnToArticle < ApplicationRecord
+end
