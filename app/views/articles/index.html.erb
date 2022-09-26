@@ -10,6 +10,7 @@
 
   <!--  POST LOOP START-->
   <% @articles.each do |article| %>
+    <% unless article.archived? %>
     <div class="post1">
       <div class="post1-heading-dropdown">
         <div ><h3>
@@ -38,8 +39,8 @@
 
       </div>
 
-      <div class="align-text-right custom-text-styles"><%= time_ago_in_words(article.created_at)
-      %>&nbsp ago</div>
+      <div class="align-text-right custom-text-styles"><strong><%= time_ago_in_words(article.created_at)
+      %>  ago.  <%= article.status %> </strong></div>
       <div class="align-text-right" ><p class="post-content"><%= link_to article.body, article %></p>
       </div>
       <div class="likes-comments-container align-text-right">
@@ -88,6 +89,7 @@
 
 
     </div>
+      <% end %>
   <% end %>
   <!--  POST LOOP END-->
 
