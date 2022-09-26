@@ -1,11 +1,7 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = current_user.articles.order(id: :desc)
+    @articles = Article.all.order(id: :desc)
     @articleCreatePostForm =Article.new
-
-
-
-
   end
 
   def show
@@ -50,6 +46,6 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:title, :body)
+    params.require(:article).permit(:title, :body, :status)
   end
 end

@@ -1,6 +1,19 @@
 body{
     margin: 0;
 }
+
+.profile-pic> img{
+    width: 56px;
+    height: 56px;
+    border-radius: 11px;
+}
+.profilePic-firstname{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width:150px;
+    /*border: 1px solid red;*/
+}
 .custom-text-styles{
     font-family: 'Montserrat';
     font-style: normal;
@@ -189,6 +202,11 @@ body{
     border-radius: 14px;
     border: 1px solid #FFFFFF;
 }
+
+.create-post-containerxx> textarea {
+    padding: 12px 12px;
+    margin-left: 20px;
+}
 .likes-comments-container{
     height: 240px;
     display: flex;
@@ -231,7 +249,7 @@ body{
 
 .style-comments-view{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
 }
 .comments-page-likes-time{
@@ -491,6 +509,11 @@ body{
     height: 646px;
     border-radius: 16px;
 }
+.Sign-up-button{
+    position: absolute;
+    right: 563px;
+    bottom: 60px;
+}
 .Sign-up-button> input{
     width: 206px;
     height: 48px;
@@ -506,5 +529,6 @@ body{
 
 .signup-right{
     margin-right: 50px;
+    margin-top: 47px;
 }
 /*signup page css end*/

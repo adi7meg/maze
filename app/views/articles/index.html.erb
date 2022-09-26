@@ -12,7 +12,9 @@
   <% @articles.each do |article| %>
     <div class="post1">
       <div class="post1-heading-dropdown">
-        <div ><h3>Amazing Landscape from Cyphen Tower</h3></div>
+        <div ><h3>
+          <%= article.user.firstname %>
+        </h3></div>
 
         <div class="">
           <div class="dropdown">
@@ -64,7 +66,8 @@
       </div>
 
       <!--COMMENTS START-->
-      <div class="align-text-right custom-text-styles "><h2>Comments</h2>
+      <div class="align-text-right custom-text-styles ">
+<!--        <h2>Comments</h2>-->
         <!--  comment1-->
         <hr size="1" width="100%" color="lightgrey">
         <div class="style-comments-view">
@@ -95,7 +98,7 @@
 <!--left side navbar start-->
 <div class="leftside-navbar">
   <div><button  type="button" class="btn btn-outline-primary btn-lg  bootstrap-button" style=" border: none;"><%= image_tag('feed.1.png') %>&nbsp;&nbsp; <span>Feed</span></button></div>
-  <div><button type="button" class="btn btn-outline-primary btn-lg  bootstrap-button" style=" border: none;"><%= image_tag('profile.png') %>&nbsp;&nbsp; <span>Profile</span></button></div>
+  <div><button type="button" class="btn btn-outline-primary btn-lg  bootstrap-button" style=" border: none;"><%= image_tag('profile.png') %>&nbsp;&nbsp; <span><a href="http://localhost:3000/users/edit">Profile</a></span></button></div>
   <div><button type="button" class="btn btn-outline-primary btn-lg  bootstrap-button" style=" border: none;"><%= image_tag('manageUser.png') %>&nbsp;&nbsp; <span>Manage Users</span></button></div>
   <div><button type="button" class="btn btn-outline-primary btn-lg  bootstrap-button" style=" border: none;"><%= image_tag('logout.png') %>&nbsp;&nbsp; <span><%= link_to "Sign Out", destroy_user_session_path, 'data-turbo-method': :delete%></span></button></div>
 </div>

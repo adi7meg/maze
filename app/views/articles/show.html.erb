@@ -6,7 +6,7 @@
   <div class="post1">
     <div class="post1-heading-dropdown">
       <div>
-<!--        <h3>Amazing Landscape from Cyphen Tower</h3>-->
+        <!--        <h3>Amazing Landscape from Cyphen Tower</h3>-->
 
       </div>
       <div>
@@ -31,7 +31,8 @@
     </div>
 
     <div class="align-text-right custom-text-styles"><%= time_ago_in_words(@article.created_at)
-    %>&nbsp ago.</div>
+    %>&nbsp ago.
+    </div>
     <div class="align-text-right">
       <p class="post-content">
       <h1><%= @article.title %></h1>
@@ -61,21 +62,24 @@
     <!--post end-->
 
     <!--    comments start-->
-    <div class="align-text-right custom-text-styles "><h2>Comments</h2>
+    <div class="align-text-right custom-text-styles ">
+<!--      <h2>Comments</h2>-->
       <!--  comment1-->
       <hr size="1" width="100%" color="lightgrey">
-      <div class="style-comments-view">
+      <div class="style-comments-view-showPage">
         <div class="align-text-right custom-text-styles">
 
-          <%= render @article.comments.order("created_at DESC")  %>
-
-
-
+  <%= render @article.comments.order(id: :DESC) %>
 
         </div>
 
+<!--        <div class=" comments-page-likes-time">-->
 
-      <hr size="1" width="100%" color="lightgrey">
+<!--          <div><%#= image_tag('redlike.png') %></div>-->
+<!--          <div class="custom-text-styles">2h</div>-->
+<!--        </div>-->
+      </div>
+<!--      <hr size="1" width="100%" color="lightgrey">-->
     </div>
 
 

@@ -11,8 +11,15 @@
   <div class="header2">
     <form class="header-search" action="">
       <input class="header-input" type="search" placeholder="Search">
+
       <%#=image_tag('search.jpg')%>
     </form>
   </div>
+  <div class="profilePic-firstname">
+    <div><%= current_user.firstname %></div>
+    <div class="profile-pic"><%= image_tag('dhawal.jpg') %>    </div>
+  </div>
+
+
 </div>
 <!--navbar end-->
