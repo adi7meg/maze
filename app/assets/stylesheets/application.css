@@ -60,6 +60,10 @@ body{
 .header-text{
     font-size: 1.8rem;
 }
+.header-text a{
+    text-decoration: none;
+    color: #2E2F30;
+}
 /*NAVBAR END*/
 
 /*MAIN START*/
@@ -146,7 +150,7 @@ body{
     border: none;
     background-color: #377DFF;
     padding: 16px 32px;
-    text-align: center;
+    /*text-align: center;*/
     text-decoration: none;
     font-size: 16px;
     margin: 4px 2px;
@@ -169,7 +173,7 @@ body{
     align-items: center;
     justify-content: space-around;
 }
-.comment-input-box-sendbutton textarea{
+.comment-input-box-sendbutton input{
 
     padding: 0 10px;
     border: none;
@@ -203,9 +207,12 @@ body{
     border: 1px solid #FFFFFF;
 }
 
-.create-post-containerxx> textarea {
-    padding: 12px 12px;
-    margin-left: 20px;
+.create-post-containerxx> input {
+    color: #2E2F30;
+    background-color:  #F5F6F8;
+    /*padding: 12px 12px;*/
+    /*margin-left: 20px*/
+    border-radius: 14px;
 }
 .likes-comments-container{
     height: 240px;
@@ -530,5 +537,9 @@ body{
 .signup-right{
     margin-right: 50px;
     margin-top: 47px;
+}
+.bootstrap-button span a{
+    color: #606165;
+    text-decoration: none;
 }
 /*signup page css end*/

@@ -35,8 +35,8 @@
     </div>
     <div class="align-text-right">
       <p class="post-content">
-      <h1><%= @article.title %></h1>
-      <p><%= @article.body %></p> </p> </p>
+<!--      <h1><%#= @article.title %></h1>-->
+      <p><%= @article.body %></p> </p>
 
     </div>
     <div class="likes-comments-container align-text-right">
@@ -69,7 +69,7 @@
       <div class="style-comments-view-showPage">
         <div class="align-text-right custom-text-styles">
 
-  <%= render @article.comments.order(id: :DESC) %>
+  <%= render @article.comments.select(&:persisted?) %>
 
         </div>
 

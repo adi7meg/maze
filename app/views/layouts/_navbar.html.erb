@@ -5,7 +5,7 @@
       <%=image_tag('Vector.jpg')%>
     </div>
     <div class="header-text">
-      Maze
+      <a href="http://localhost:3000/">Maze</a>
     </div>
   </div>
   <div class="header2">
@@ -16,7 +16,9 @@
     </form>
   </div>
   <div class="profilePic-firstname">
-    <div><%= current_user.firstname %></div>
+    <div>
+      <%#= "(Admin)" if current_user.admin? %>
+      <%= current_user.firstname %></div>
     <div class="profile-pic"><%= image_tag('dhawal.jpg') %>    </div>
   </div>
 

@@ -9,10 +9,10 @@
 
   <div class="create-post-containerxx">
 <!--    <%#= form.label :body %><br>-->
-    <%= form.text_area :body, placeholder: "What's Happening..." %>
+    <%= form.text_field :body, placeholder: "What's Happening..." %>
     <div>
       <%= form.label :status %><br>
-      <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+      <%= form.select :status, ['public', 'private'], selected: 'public' %>
     </div>
     <div class="live-photos-feelings-post-container">
       <div class="live-photos-feelings-container">

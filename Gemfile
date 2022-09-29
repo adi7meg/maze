@@ -43,7 +43,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 gem 'devise', '~> 4.8', '>= 4.8.1'
-
+gem "rolify"
 # Use Sass to process CSS
 # gem "sassc-rails"
 
