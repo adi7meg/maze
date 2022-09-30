@@ -2,6 +2,13 @@ body{
     margin: 0;
 }
 
+.index-comment-color{
+    color: #606165;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    margin: 25px 60px
+}
 .profile-pic> img{
     width: 56px;
     height: 56px;
@@ -265,6 +272,9 @@ body{
 }
 
 .adjustcommentlikes{
+    margin: auto;
+    /*border: 1px solid;*/
+    width: 896px;
     display: flex;
     justify-content: space-between;
 }
@@ -412,7 +422,7 @@ body{
     border-radius: 16px;
 }
 .email-label-input{
-    margin: 30px 0;
+    margin: 30px;
 }
 .email-label-input> label{
     font-family: 'Montserrat';
@@ -434,7 +444,7 @@ body{
 }
 
 .password-label-input{
-    margin: 30px 0;
+    margin: 30px;
 }
 
 .password-label-input> label{
@@ -455,7 +465,7 @@ body{
     border-radius: 5px;
 }
 .remember-me{
-    margin: 20px 0;
+    margin: 30px;
 }
 .remember-me> input{
     box-sizing: border-box;
@@ -485,8 +495,12 @@ body{
     border-radius: 5px;
     color: #FFFFFF;
 }
+.Log-in-button{
+    margin: 30px;
+}
 .dont-have-account{
     color: #FFFFFF;
+    margin: 0 190px 0 0;
 }
 .login-bg> img{
     width: 100%;
@@ -505,8 +519,9 @@ body{
 /*signup page css start*/
 .signup-div{
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    flex-direction: column;
+    /*align-items: center;*/
+    justify-content: center;
     position: absolute;
     top: 200px;
     left: 425px;
@@ -517,9 +532,7 @@ body{
     border-radius: 16px;
 }
 .Sign-up-button{
-    position: absolute;
-    right: 563px;
-    bottom: 60px;
+    margin: 0 0px 0 330px;
 }
 .Sign-up-button> input{
     width: 206px;
@@ -530,13 +543,22 @@ body{
     border-radius: 5px;
     color: #FFFFFF;
 }
-.signup-left{
-   margin-right: 50px;
-}
 
-.signup-right{
-    margin-right: 50px;
-    margin-top: 47px;
+.name-lastname{
+    display: flex;
+    justify-content: flex-end;
+}
+.email-phone{
+    display: flex;
+    justify-content: flex-end;
+}
+.password-confirmPassword{
+    display: flex;
+    justify-content: flex-end;
+}
+.create-account-png{
+
+    margin: 0 0 0 330px;
 }
 .bootstrap-button span a{
     color: #606165;

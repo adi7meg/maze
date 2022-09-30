@@ -18,7 +18,10 @@
   <div class="profilePic-firstname">
     <div>
       <%#= "(Admin)" if current_user.admin? %>
-      <%= current_user.firstname %></div>
+      <%= current_user.firstname %>
+      <%= current_user.lastname %>
+
+    </div>
     <div class="profile-pic"><%= image_tag('dhawal.jpg') %>    </div>
   </div>
 

@@ -6,7 +6,7 @@
   <div class="post1">
     <div class="post1-heading-dropdown">
       <div>
-        <!--        <h3>Amazing Landscape from Cyphen Tower</h3>-->
+                <h2><%= @article.user.firstname %> <%= @article.user.lastname %></h2>
 
       </div>
       <div>
@@ -30,8 +30,7 @@
 
     </div>
 
-    <div class="align-text-right custom-text-styles"><%= time_ago_in_words(@article.created_at)
-    %>&nbsp ago.
+    <div class="align-text-right custom-text-styles"><%= time_ago_in_words(@article.created_at) %>&nbsp; ago. &nbsp;  <%= @article.status %>
     </div>
     <div class="align-text-right">
       <p class="post-content">
@@ -57,35 +56,54 @@
       <div class="comment-input-box-sendbutton">
         <%= render 'comments/form' %>
 
+
       </div>
+
+
+
     </div>
     <!--post end-->
 
     <!--    comments start-->
-    <div class="align-text-right custom-text-styles ">
+<!--    <div class="align-text-right custom-text-styles ">-->
 <!--      <h2>Comments</h2>-->
       <!--  comment1-->
-      <hr size="1" width="100%" color="lightgrey">
-      <div class="style-comments-view-showPage">
-        <div class="align-text-right custom-text-styles">
+<!--      <hr size="1" width="100%" color="lightgrey">-->
+<!--      <div class="style-comments-view-showPage">-->
+<!--        <div class="align-text-right custom-text-styles">-->
 
-  <%= render @article.comments.select(&:persisted?) %>
+  <%#= render @article.comments.select(&:persisted?) %>
 
-        </div>
+<!--        </div>-->
 
 <!--        <div class=" comments-page-likes-time">-->
 
 <!--          <div><%#= image_tag('redlike.png') %></div>-->
 <!--          <div class="custom-text-styles">2h</div>-->
 <!--        </div>-->
-      </div>
+<!--      </div>-->
 <!--      <hr size="1" width="100%" color="lightgrey">-->
-    </div>
+<!--    </div>-->
 
 
   </div>
   <!--  post end-->
+<!--Comments-->
+
+
+
+
 </div>
+
+
+
+
+
+  <%= render @article.comments.select(&:persisted?) %>
+
+<%#= render @article.comments.order('created_at DESC') %>
+
+
 
 
 

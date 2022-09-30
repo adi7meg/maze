@@ -16,7 +16,7 @@
     <div class="post1">
       <div class="post1-heading-dropdown">
         <div ><h3>
-          <%= article.user.firstname %>
+          <%= article.user.firstname %> <%= article.user.lastname %>
         </h3></div>
 
         <div class="">
@@ -71,33 +71,36 @@
       </div>
 
       <!--COMMENTS START-->
-      <div class="align-text-right custom-text-styles ">
+<!--      <div class="align-text-right custom-text-styles ">-->
+        <%= article.comments.order("created_at DESC").first&.body %>
 <!--        <h2>Comments</h2>-->
         <!--  comment1-->
-        <hr size="1" width="100%" color="lightgrey">
-        <div class="style-comments-view">
+<!--        <hr size="1" width="100%" color="lightgrey">-->
+<!--        <div class="style-comments-view">-->
+          <%#= article.comments.order("created_at DESC").first&.body %>
+<!--          <div class="align-text-right custom-text-styles">-->
+            <%#= article.comments.order("created_at DESC").first&.body %>
 
-          <div class="align-text-right custom-text-styles">
-            <%= article.comments.order("created_at DESC").first&.body %>
 
-
-          </div>
+<!--          </div>-->
 <!--          <div class=" comments-page-likes-time">-->
 <!--            <div><%#= image_tag('redlike.png') %></div>-->
 <!--            <div class="custom-text-styles">2h</div>-->
 <!--          </div>-->
-        </div>
-        <hr size="1" width="100%" color="lightgrey">
-      </div>
+<!--        </div>-->
+<!--        <hr size="1" width="100%" color="lightgrey">-->
+<!--      </div>-->
       <!--COMMENTS END-->
 
 
     </div>
+
       <% else if current_user.id == article.user_id || article.status == 'public'  %>
         <div class="post1">
           <div class="post1-heading-dropdown">
             <div ><h3>
-              <%= article.user.firstname %>
+              <%= article.user.firstname %> <%= article.user.lastname %>
+
             </h3></div>
 
             <div class="">
@@ -152,24 +155,25 @@
           </div>
 
           <!--COMMENTS START-->
-          <div class="align-text-right custom-text-styles ">
+<!--          <div class="align-text-right custom-text-styles ">-->
             <!--        <h2>Comments</h2>-->
             <!--  comment1-->
-            <hr size="1" width="100%" color="lightgrey">
-            <div class="style-comments-view">
+<!--            <hr size="1" width="100%" color="lightgrey">-->
+<!--            <div class="style-comments-view">-->
 
-              <div class="align-text-right custom-text-styles">
-                <%= article.comments.order("created_at DESC").first&.body %>
+<!--              <div class="align-text-right custom-text-styles">-->
+          <div class="index-comment-color"><%= article.comments.order("created_at DESC").first&.body %></div>
 
 
-              </div>
+
+<!--              </div>-->
               <!--          <div class=" comments-page-likes-time">-->
               <!--            <div><%#= image_tag('redlike.png') %></div>-->
               <!--            <div class="custom-text-styles">2h</div>-->
               <!--          </div>-->
-            </div>
-            <hr size="1" width="100%" color="lightgrey">
-          </div>
+<!--            </div>-->
+<!--            <hr size="1" width="100%" color="lightgrey">-->
+<!--          </div>-->
           <!--COMMENTS END-->
 
 
