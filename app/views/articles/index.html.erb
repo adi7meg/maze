@@ -199,10 +199,23 @@
 
 
 <!--right side navbar start-->
+
 <div class="rightside-navbar">
-  <div class="rightside-Users"></div>
-  <div class="rightside-Users"></div>
-  <div class="rightside-Users"></div>
+  <div class="users-list-threedots">
+    <div>Users List</div>
+    <div><strong>...</strong></div>
+  </div>
+  <% @articles.each do |article| %>
+  <div class="rightside-Users">
+    <div> <%= image_tag('Vector.jpg') %> </div>
+
+     <div>
+       <%= article.user.firstname %>
+       <%= article.user.lastname %>
+     </div>
+
+  </div>
+<% end %>
 </div>
 
 <!--right side navbar end-->

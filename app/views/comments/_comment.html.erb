@@ -25,7 +25,7 @@
     <div class=" comments-page-likes-time">
 
       <div><%= image_tag('redlike.png') %></div>
-      <div class="custom-text-styles">2h</div>
+      <div class="custom-text-styles"><%= time_ago_in_words(comment.created_at) %></div>
     </div>
   </div>
 

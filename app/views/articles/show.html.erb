@@ -84,7 +84,7 @@
 <!--      </div>-->
 <!--      <hr size="1" width="100%" color="lightgrey">-->
 <!--    </div>-->
-
+    <%= render @article.comments.select(&:persisted?) %>
 
   </div>
   <!--  post end-->
@@ -99,7 +99,7 @@
 
 
 
-  <%= render @article.comments.select(&:persisted?) %>
+
 
 <%#= render @article.comments.order('created_at DESC') %>
 
