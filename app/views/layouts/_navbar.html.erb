@@ -1,6 +1,6 @@
 <!--navbar-->
 <div class="header">
-  <div class="header1">
+  <div class="header1" style=" width: 150px;display: flex;justify-content: space-around;align-items: center;margin: 25px;">
     <div class="">
       <%=image_tag('Vector.jpg')%>
     </div>
@@ -16,13 +16,16 @@
     </form>
   </div>
   <div class="profilePic-firstname">
-    <div>
-      <%#= "(Admin)" if current_user.admin? %>
-      <%= current_user.firstname %>
-      <%= current_user.lastname %>
-
+    <div class="profile-pic"><%= image_tag('dhawal.jpg') %></div> &nbsp;
+    <div style="">
+      <div> <span style="color: #606165;"><%= current_user.firstname %> <%= current_user.lastname %></span></div>
+      <% if current_user.has_role? :admin %>
+        <span style="font-family: 'Montserrat';color: rgba(96, 97, 101, 0.6);">Admin</span>
+      <% end %>
     </div>
-    <div class="profile-pic"><%= image_tag('dhawal.jpg') %>    </div>
+
+
+
   </div>
 
 

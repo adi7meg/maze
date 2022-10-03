@@ -12,13 +12,13 @@ body{
 .profile-pic> img{
     width: 56px;
     height: 56px;
-    border-radius: 11px;
+    border-radius: 30px;
 }
 .profilePic-firstname{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    width:150px;
+    width:auto;
     /*border: 1px solid red;*/
 }
 .custom-text-styles{
@@ -42,7 +42,8 @@ body{
     background-color: white;
     height:100px;
     width: auto;
-    /*padding: 20px 10px;*/
+    padding: 0 20px 0 0;
+}
 }
 
 .header1{
@@ -477,7 +478,6 @@ body{
 .remember-me> label{
     width: 105px;
     height: 20px;
-
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
@@ -543,6 +543,17 @@ body{
     border-radius: 5px;
     color: #FFFFFF;
 }
+.logooout> form {
+    background: transparent url('logout.png') no-repeat scroll top right;
+    color: #444;
+    display: block;
+    float: left;
+    font: normal 12px arial, sans-serif;
+    height: 24px;
+    margin-right: 6px;
+    padding-right: 18px; /* sliding doors padding */
+    text-decoration: none;
+}
 
 .name-lastname{
     display: flex;
@@ -571,9 +582,9 @@ body{
 
 .rightside-navbar{
     display: flex;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
     position: absolute;
-    height: 400px;
+    height: auto;
     width: 368px;
     flex-direction: column;
     /*align-items: center;*/
@@ -598,8 +609,8 @@ body{
 }
 .rightside-Users{
     display: flex;
-    width: 120px;
-    justify-content: space-between;
+    width: 200px;
+    /*justify-content: space-between;*/
     align-items:center ;
     margin: 0 0 15px 0;
     font-family: 'Montserrat';
@@ -610,3 +621,17 @@ body{
     color: #9FA0A3;
 }
 /*rightside navbar end*/
+
+
+
+.User-Managment-Details{
+    display: flex;
+    width: 1008px;
+    height: 65px;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(0deg, #FFFFFF, #FFFFFF), #FFFFFF;
+    border-radius: 14px;
+    padding: 0 10px 0 10px;
+    margin: 0 0 13px 0;
+}

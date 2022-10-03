@@ -190,8 +190,14 @@
 <!--left side navbar start-->
 <div class="leftside-navbar">
   <div><button  type="button" class="btn btn-outline-primary btn-lg  bootstrap-button" style=" border: none;"><%= image_tag('feed.1.png') %>&nbsp;&nbsp; <span>Feed</span></button></div>
-  <div><button type="button" class="btn btn-outline-primary btn-lg  bootstrap-button" style=" border: none;"><%= image_tag('profile.png') %>&nbsp;&nbsp; <span><a href="http://localhost:3000/users/edit">Profile</a></span></button></div>
-  <div><button type="button" class="btn btn-outline-primary btn-lg  bootstrap-button" style=" border: none;"><%= image_tag('manageUser.png') %>&nbsp;&nbsp; <span>Manage Users</span></button></div>
+  <div>
+    <a href="http://localhost:3000/users/edit">    <button type="button" class="btn btn-outline-primary btn-lg  bootstrap-button" style=" border: none;"><%= image_tag('profile.png') %>&nbsp;&nbsp; <span>Profile</span></button></a>
+  </div>
+  <% if current_user.has_role? :admin %>
+  <div>
+    <a href="http://localhost:3000/users"> <button type="button" class="btn btn-outline-primary btn-lg  bootstrap-button" style=" border: none;"><%= image_tag('manageUser.png') %>&nbsp;&nbsp; <span>Manage Users  </span></button></a>
+  </div>
+    <% end %>
   <div><button type="button" class="btn btn-outline-primary btn-lg  bootstrap-button" style=" border: none;"><%= image_tag('logout.png') %>&nbsp;&nbsp; <span><%= link_to "Log Out", destroy_user_session_path, 'data-turbo-method': :delete%></span></button></div>
 </div>
 
@@ -205,17 +211,17 @@
     <div>Users List</div>
     <div><strong>...</strong></div>
   </div>
-  <% @articles.each do |article| %>
-  <div class="rightside-Users">
-    <div> <%= image_tag('Vector.jpg') %> </div>
+  <% if current_user.has_role? :admin %>
+  <% User.all.each do |user| %>
 
-     <div>
-       <%= article.user.firstname %>
-       <%= article.user.lastname %>
-     </div>
+  <div class="rightside-Users">
+    <div style="margin-right: 20px"> <%= image_tag('Vector.jpg') %> </div>
+    <%= user.firstname  %>
+    <%= user.lastname  %>
 
   </div>
 <% end %>
+    <% end %>
 </div>
 
 <!--right side navbar end-->

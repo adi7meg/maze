@@ -27,7 +27,7 @@ development:
   <<: *default
   database: blog_development,
   pool: 5,
-  username: aadi
+  username: postgres
   password: postgres
   host: localhost
   # The specified database role being used to connect to postgres.

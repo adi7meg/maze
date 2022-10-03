@@ -197,6 +197,7 @@ Devise.setup do |config|
   # :failed_attempts = Locks an account after a number of failed attempts to sign in.
   # :none            = No lock strategy. You should handle locking by yourself.
   # config.lock_strategy = :failed_attempts
+  config.lock_strategy = :none
 
   # Defines which key will be used when locking and unlocking an account
   # config.unlock_keys = [:email]
@@ -207,6 +208,7 @@ Devise.setup do |config|
   # :both  = Enables both strategies
   # :none  = No unlock strategy. You should handle unlocking by yourself.
   # config.unlock_strategy = :both
+  config.unlock_strategy = :none
 
   # Number of authentication tries before locking an account if lock_strategy
   # is failed attempts.
@@ -226,7 +228,7 @@ Devise.setup do |config|
   # Time interval you can reset your password with a reset password key.
   # Don't put a too small interval or your users won't have the time to
   # change their passwords.
-  config.reset_password_within = 6.hours
+  # config.reset_password_within = 6.hours
 
   # When set to false, does not sign a user in automatically after their password is
   # reset. Defaults to true, so a user is signed in automatically after a reset.
