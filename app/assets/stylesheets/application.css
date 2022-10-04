@@ -44,7 +44,7 @@ body{
     width: auto;
     padding: 0 20px 0 0;
 }
-}
+
 
 .header1{
     width: 150px;
@@ -543,16 +543,27 @@ body{
     border-radius: 5px;
     color: #FFFFFF;
 }
-.logooout> form {
-    background: transparent url('logout.png') no-repeat scroll top right;
-    color: #444;
-    display: block;
-    float: left;
-    font: normal 12px arial, sans-serif;
-    height: 24px;
-    margin-right: 6px;
-    padding-right: 18px; /* sliding doors padding */
-    text-decoration: none;
+.logooout button img{
+    position: absolute;
+    top: 257px;
+    left: 91px;
+}
+/*.logooout form button {*/
+/*    color: #606165;*/
+/*    width: 239px;*/
+/*    height: 59px;*/
+/*    background-color: #377DFF;*/
+/*    border-radius: 14px;*/
+/*    border: none;*/
+    /*!*background: transparent url('logout.png') no-repeat scroll top right;*!*/
+    /*color: #444;*/
+    /*!*display: block;*!*/
+    /*!*float: left;*!*/
+    /*!*font: normal 12px arial, sans-serif;*!*/
+    /*!*height: 24px;*!*/
+    /*margin-right: 6px;*/
+    /*padding-right: 18px; !* sliding doors padding *!*/
+    /*!*text-decoration: none;*!*/
 }
 
 .name-lastname{
@@ -574,6 +585,15 @@ body{
 .bootstrap-button span a{
     color: #606165;
     text-decoration: none;
+}
+.bootstrap-button-feed img{
+    margin: 0 0 0 -106px;
+}
+.bootstrap-button-manageuser img{
+    margin: 0 0 0 -23px;
+}
+.bootstrap-button-profile img{
+    margin: 0 0 0 -93px;
 }
 /*signup page css end*/
 
@@ -634,4 +654,27 @@ body{
     border-radius: 14px;
     padding: 0 10px 0 10px;
     margin: 0 0 13px 0;
+}
+
+
+.deactivate-button form button{
+    height: 34px;
+    width: 132px;
+    background: rgba(245, 100, 100, 0.15);
+    border-radius: 14px;
+    color: #F56464;
+    border: none;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.activate-button form button{
+    height: 34px;
+    width: 132px;
+    background: rgba(113, 190, 52, 0.15);
+    border-radius: 14px;
+    color: #71BE34;
+    border: none;
+    font-weight: 600;
+    font-size: 14px;
 }

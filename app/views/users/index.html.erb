@@ -42,16 +42,15 @@
 
     <div class="User-Managment-Details">
       <div><%= image_tag('Vector.jpg') %></div>
-      <div style="font-family: 'Montserrat';font-weight: 600;font-size: 18px;color: #606165;"><%= user.firstname %></div>
-      <div style="font-family: 'Montserrat';font-weight: 600;font-size: 18px;color: #606165;"><%= user.lastname %></div>
+      <div style="font-family: 'Montserrat';font-weight: 600;font-size: 18px;color: #606165;width: 200px;"><%= user.firstname %> &nbsp; <%= user.lastname %></div>
       <div style="font-weight: 600;font-size: 14px;color: #9FA0A3;"><%= user.phone %></div>
-      <div style="font-weight: 500;font-size: 14px;color: #9FA0A3;"><%= user.email %></div>
+      <div style="font-weight: 500;font-size: 14px;color: #9FA0A3; width: 200px"><%= user.email %></div>
       <div><% if user.access_locked? %>
-      <%= button_to 'Activate', ban_user_path(user), :method=> :patch %>
+          <div class="activate-button"><%= button_to 'Activate', ban_user_path(user), :method=> :patch %></div>
     <% else %>
-      <%= button_to 'Deactivate', ban_user_path(user), :method=> :patch %>
+          <div class="deactivate-button"><%= button_to 'Deactivate', ban_user_path(user), :method=> :patch %></div>
         <% end %></div>
-<!--      <div><strong>...</strong></div>-->
+<!--      <div><strong style="color: rgba(96, 97, 101, 0.6);">...</strong></div>-->
     </div>
 
   <% end %>
@@ -63,12 +62,12 @@
 
 
 <div class="leftside-navbar">
-  <div><button  type="button" class="btn btn-outline-primary btn-lg  bootstrap-button" style=" border: none;"><%= image_tag('feed.1.png') %>&nbsp;&nbsp; <span>Feed</span></button></div>
+  <div><button  type="button" class="btn btn-outline-primary btn-lg  bootstrap-button bootstrap-button-feed" style=" border: none;"><%= image_tag('feed.1.png') %>&nbsp;&nbsp; <span>Feed</span></button></div>
   <div>
-    <a href="http://localhost:3000/users/edit">    <button type="button" class="btn btn-outline-primary btn-lg  bootstrap-button" style=" border: none;"><%= image_tag('profile.png') %>&nbsp;&nbsp; <span>Profile</span></button></a>
+    <a href="http://localhost:3000/users/edit">    <button type="button" class="btn btn-outline-primary btn-lg  bootstrap-button bootstrap-button-profile" style=" border: none;"><%= image_tag('profile.png') %>&nbsp;&nbsp; <span>Profile</span></button></a>
   </div>
   <% if current_user.has_role? :admin %>
-    <div><button type="button" class="btn btn-outline-primary btn-lg  bootstrap-button" style=" border: none;"><%= image_tag('manageUser.png') %>&nbsp;&nbsp; <span>  <a href="http://localhost:3000/users">Manage Users</a></span></button></div>
+    <div><button type="button" class="btn btn-outline-primary btn-lg  bootstrap-button bootstrap-button-manageuser" style=" border: none;"><%= image_tag('manageUser.png') %>&nbsp; &nbsp;<span><a href="http://localhost:3000/users">Manage Users</a></span></button></div>
   <% end %>
-  <div><span class="logooout"><%= button_to "Log Out", destroy_user_session_path, 'data-turbo-method': :delete%></span></div>
+  <div class="logooout"><button type="button" class="btn btn-outline-primary btn-lg  bootstrap-button" style=" border: none;"><%= image_tag('logout.png') %><span><%= link_to "Log Out", destroy_user_session_path, 'data-turbo-method': :delete%></span></button></div>
 </div>

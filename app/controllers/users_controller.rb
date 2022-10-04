@@ -10,6 +10,7 @@ class UsersController < ApplicationController
       @user.lock_access!
 
     end
-    redirect_to users_path, notice:  "User access locked: #{@user.access_locked?} "
+    redirect_to users_path
+                # notice:  "User access locked: #{@user.access_locked?} "
   end
 end
