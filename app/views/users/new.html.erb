@@ -33,43 +33,59 @@
 <!--navbar end-->
 
 
-<div class="main"  style="padding-top: 30px">
-  <div style="display: flex; width: 1008px; justify-content: space-between; align-items: center;margin-bottom: 10px;">
-    <div><%= image_tag('List of Users.png') %></div>
-
-    <div>
-
-      <div><%= image_tag('u.png') %>&nbsp;&nbsp; <span class="create-user-button"><%= link_to 'Create User', user_new_path(@users), class:"btn btn-primary", style:"border-radius:25px" %></span></div>
-    </div>
-  </div>
-  <% @users.each do |user| %>
-
-    <div class="User-Managment-Details">
-      <div><%= image_tag('Vector.jpg') %></div>
-      <div style="font-family: 'Montserrat';font-weight: 600;font-size: 18px;color: #606165;width: 200px;"><%= user.firstname %> &nbsp; <%= user.lastname %></div>
-      <div style="font-weight: 600;font-size: 14px;color: #9FA0A3;"><%= user.phone %></div>
-      <div style="font-weight: 500;font-size: 14px;color: #9FA0A3; width: 200px"><%= user.email %></div>
-      <div><% if user.access_locked? %>
-          <div class="activate-button"><%= button_to 'Activate', ban_user_path(user), :method=> :patch %></div>
-    <% else %>
-          <div class="deactivate-button"><%= button_to 'Deactivate', ban_user_path(user), :method=> :patch %></div>
-        <% end %></div>
-<!--      <div><strong style="color: rgba(96, 97, 101, 0.6);">...</strong></div>-->
+<!--Create user start-->
+<div class="main" style="align-items: flex-start">
 
 
+<div style="margin: 39px 0 0 40px;"><%= image_tag('Add Users.png') %></div>
+
+
+
+
+  <%= form_with url:user_user_create_path,model: @users do |form| %>
+
+    <div class="create-user-firstname-lastname">
+      <%= form.text_field :firstname, placeholder: "Firstname" %>
+      <%= form.text_field :lastname, placeholder: "Lastname" %>
     </div>
 
-  <% end %>
+    <div class="create-user-email-phone">
+      <%= form.text_field :email, placeholder: "Email" %>
+      <%= form.text_field :phone, placeholder: "Phone" %>
+    </div>
+
+    <div class="create-user-password">
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+      <%= form.password_field :password, autocomplete: "new-password", placeholder:"Password" %>
+    </div>
+
+    <div style="margin: 39px 0 0 39px;"><%= image_tag('Assign Role.png') %></div>
+
+    <div class="create-user-role">
+      <%= form.collection_check_boxes :role_ids, Role.all, :id, :name  %>
+    </div>
+
+
+    <%= form.submit  "Create User", class:"create-user-button-newpage" %>
+
+
+    <% end %>
+
+
+
+
+
+
 </div>
-
-
+<!--Create user end-->
 
 
 
 
 <div class="leftside-navbar">
   <a href="http://localhost:3000/"><div><button  type="button" class="btn btn-outline-primary btn-lg  bootstrap-button bootstrap-button-feed" style=" border: none;"><%= image_tag('feed.1.png') %>&nbsp;&nbsp; <span>Feed</span></button></div></a>
-
   <div>
     <a href="http://localhost:3000/users/edit">    <button type="button" class="btn btn-outline-primary btn-lg  bootstrap-button bootstrap-button-profile" style=" border: none;"><%= image_tag('profile.png') %>&nbsp;&nbsp; <span>Profile</span></button></a>
   </div>
@@ -78,3 +94,10 @@
   <% end %>
   <div class="logooout"><span><%= image_tag('logout.png') %></span><%= link_to "Log Out", destroy_user_session_path, 'data-turbo-method': :delete, class:"btn btn-outline-primary bootstrap-logout"%></div>
 </div>
+
+
+
+
+
+
+

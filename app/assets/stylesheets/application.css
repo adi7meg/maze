@@ -1,6 +1,14 @@
 body{
     margin: 0;
 }
+.likes-button button{
+    border: none;
+    background-color: white;
+    color: #606165;
+}
+.likes-button button:hover{
+    color: #0d6efd;
+}
 
 .index-comment-color{
     color: #606165;
@@ -68,6 +76,9 @@ body{
 .header-text{
     font-size: 1.8rem;
 }
+/*.header-text :hover{*/
+/*    font-size: 2rem;*/
+/*}*/
 .header-text a{
     text-decoration: none;
     color: #2E2F30;
@@ -377,9 +388,21 @@ body{
     margin-bottom: 0;
 }
 .bootstrap-button{
+    color: #606165;
+    text-decoration: none;
     width: 239px;
     height: 59px;
     margin: 0 0 20px 0;
+}
+.bootstrap-logout {
+    font-size: 20px !important;
+    line-height: 46px !important;
+    /*margin-right: 35px !important;*/
+    height: 59px;
+    width: 239px;
+    color: #606165 !important;
+    text-decoration: none !important;
+    border: none !important;
 }
 .bootstrap-button> span{
     color: #606165;
@@ -543,7 +566,7 @@ body{
     border-radius: 5px;
     color: #FFFFFF;
 }
-.logooout button img{
+.logooout span img{
     position: absolute;
     top: 257px;
     left: 91px;
@@ -564,7 +587,7 @@ body{
     /*margin-right: 6px;*/
     /*padding-right: 18px; !* sliding doors padding *!*/
     /*!*text-decoration: none;*!*/
-}
+
 
 .name-lastname{
     display: flex;
@@ -677,4 +700,106 @@ body{
     border: none;
     font-weight: 600;
     font-size: 14px;
+}
+
+.create-user-button a{
+    text-decoration: none;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 17px;
+    color: #F9FAFB;
+}
+.create-user-button a:hover {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.main-create-users{
+    background: #F9FAFB;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 1099px;
+    border: 1px solid #FFFFFF;
+    border-radius: 14px;
+}
+
+
+.create-user-firstname-lastname{
+    display: flex;
+    justify-content: space-between;
+    width: 1000px;
+    height: 52px;
+    margin: 39px 0 0 39px;
+}
+.create-user-firstname-lastname input{
+    padding-left: 20px;
+    width: 457px;
+    height: 52px;
+    left: 350px;
+    top: 213px;
+    background: linear-gradient(0deg, #FFFFFF, #FFFFFF), #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 14px;
+}
+
+
+.create-user-email-phone{
+    display: flex;
+    justify-content: space-between;
+    width: 1000px;
+    height: 52px;
+    margin: 39px 0 0 39px;
+
+}
+.create-user-email-phone input{
+    padding-left: 20px;
+    width: 457px;
+    height: 52px;
+    left: 350px;
+    top: 213px;
+    background: linear-gradient(0deg, #FFFFFF, #FFFFFF), #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 14px;
+}
+
+
+.create-user-password{
+    display: flex;
+    justify-content: space-between;
+    width: 1000px;
+    height: 52px;
+    margin: 39px 0 0 39px;
+
+}
+.create-user-password input{
+    padding-left: 20px;
+    width: 457px;
+    height: 52px;
+    left: 350px;
+    top: 213px;
+    background: linear-gradient(0deg, #FFFFFF, #FFFFFF), #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 14px;
+}
+
+
+.create-user-role{
+    margin: 39px 0 0 39px;
+}
+
+.create-user-button-newpage{
+    background: #377DFF;
+    border-radius: 14px;
+    margin: 39px 0 39px 39px;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 17px;
+    color: #F9FAFB;
+    border: none;
+}
+.create-user-role{
+
 }

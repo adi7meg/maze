@@ -4,7 +4,7 @@
 
   <!--    createpost-->
   <div class="create-post-container">
-      <%= render "form", article: @articleCreatePostForm %>
+    <%= render "form", article: @articleCreatePostForm %>
   </div>
   <!--create post end-->
 
@@ -12,93 +12,104 @@
 
   <% @articles.each do |article| %>
     <%# unless article.archived?  %>
-    <% if current_user.has_role? :admin || article.status == 'private' || article.status == 'public'  %>
-    <div class="post1">
-      <div class="post1-heading-dropdown">
-        <div ><h3>
-          <%= article.user.firstname %> <%= article.user.lastname %>
-        </h3></div>
+    <% if current_user.has_role? :admin || article.status == 'private' || article.status == 'public' %>
+      <div class="post1">
+        <div class="post1-heading-dropdown">
+          <div><h3>
+            <%= article.user.firstname %> <%= article.user.lastname %>
+          </h3></div>
 
-        <div class="">
+          <div class="">
 
-          <div class="dropdown">
-<!--            <button class="dropbtn">Dropdown</button>-->
-            <div class="dropbtn"><%= image_tag('Ellipse 4.png') %></div>
-            <div class="dropbtn"><%= image_tag('Ellipse 4.png') %></div>
-            <div class="dropbtn"><%= image_tag('Ellipse 4.png') %></div>
-            <div class="dropdown-content">
-              <%= link_to "Edit", edit_article_path(article) %>
-              <%= link_to "Destroy", article_path(article), data: {
-                turbo_method: :delete,
-                turbo_confirm: "Are you sure?"
-              } %>
+            <div class="dropdown">
+              <!--            <button class="dropbtn">Dropdown</button>-->
+              <div class="dropbtn"><%= image_tag('Ellipse 4.png') %></div>
+              <div class="dropbtn"><%= image_tag('Ellipse 4.png') %></div>
+              <div class="dropbtn"><%= image_tag('Ellipse 4.png') %></div>
+              <div class="dropdown-content">
+                <%= link_to "Edit", edit_article_path(article) %>
+                <%= link_to "Destroy", article_path(article), data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Are you sure?"
+                } %>
 
+              </div>
             </div>
+
+
           </div>
 
-
-
         </div>
 
-      </div>
-
-      <div class="align-text-right custom-text-styles"><strong><%= time_ago_in_words(article.created_at)
-      %>  ago.  <%= article.status %> </strong></div>
-      <div class="align-text-right" ><p class="post-content"><%= link_to article.body, article %></p>
-      </div>
-      <div class="likes-comments-container align-text-right">
-        <div class="likes-comments-count">
-          <div class="custom-text-styles">2 likes</div>
-          <div class="custom-text-styles">  <%= article.comments.size %> comments</div>
-
+        <div class="align-text-right custom-text-styles"><strong><%= time_ago_in_words(article.created_at)
+        %>  ago.  <%= article.status %> </strong></div>
+        <div class="align-text-right"><p class="post-content"><%= link_to article.body, article %></p>
         </div>
-        <hr size="1" width="100%" color="lightgrey">
-        <div class="likes-comments">
-          <div><%= image_tag('like.png') %></div>
-          <div class="custom-text-styles">Like</div>
-          <div><%= image_tag('comment.png') %></div>
-          <div class="custom-text-styles"><%= link_to "Comment", article %></div>
+        <div class="likes-comments-container align-text-right">
+          <div class="likes-comments-count">
+            <div class="custom-text-styles">
+              <p><%= article.likes.count %> likes </p>
+            </div>
+            <div class="custom-text-styles">  <%= article.comments.size %> comments</div>
+
+          </div>
+          <hr size="1" width="100%" color="lightgrey">
+          <div class="likes-comments">
+            <div><%= image_tag('like.png') %></div>
+            <div class="custom-text-styles likes-button">
+<!--likes start-->
+              <% pre_like = article.likes.find { |like| like.user_id == current_user.id } %>
+              <% if pre_like %>
+                <%= button_to 'Unlike', article_like_path(article, pre_like), method: :delete %>
+              <% else %>
+                <%= button_to 'Like', article_likes_path(article), method: :post %>
+              <% end %>
+<!--like end-->
+            </div>
+            <div><%= image_tag('comment.png') %></div>
+            <div class="custom-text-styles"><%= link_to "Comment", article %></div>
+          </div>
+          <hr size="1" width="100%" color="lightgrey">
+
+          <div>
+            <% @article = article %>
+            <%= render 'comments/form' %>
+
+
+            <!--          <div> <%#= image_tag('send (1).png') %></div>-->
+          </div>
         </div>
-        <hr size="1" width="100%" color="lightgrey">
 
-        <div>
-          <% @article=article %>
-          <%= render 'comments/form' %>
-
-
-<!--          <div> <%#= image_tag('send (1).png') %></div>-->
-        </div>
-      </div>
-
-      <!--COMMENTS START-->
-<!--      <div class="align-text-right custom-text-styles ">-->
+        <!--COMMENTS START-->
+        <!--      <div class="align-text-right custom-text-styles ">-->
         <%= article.comments.order("created_at DESC").first&.body %>
-<!--        <h2>Comments</h2>-->
+        <!--        <h2>Comments</h2>-->
         <!--  comment1-->
-<!--        <hr size="1" width="100%" color="lightgrey">-->
-<!--        <div class="style-comments-view">-->
-          <%#= article.comments.order("created_at DESC").first&.body %>
-<!--          <div class="align-text-right custom-text-styles">-->
-            <%#= article.comments.order("created_at DESC").first&.body %>
+        <!--        <hr size="1" width="100%" color="lightgrey">-->
+        <!--        <div class="style-comments-view">-->
+        <%#= article.comments.order("created_at DESC").first&.body %>
+        <!--          <div class="align-text-right custom-text-styles">-->
+        <%#= article.comments.order("created_at DESC").first&.body %>
 
 
-<!--          </div>-->
-<!--          <div class=" comments-page-likes-time">-->
-<!--            <div><%#= image_tag('redlike.png') %></div>-->
-<!--            <div class="custom-text-styles">2h</div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <hr size="1" width="100%" color="lightgrey">-->
-<!--      </div>-->
-      <!--COMMENTS END-->
+        <!--          </div>-->
+        <!--          <div class=" comments-page-likes-time">-->
+        <!--            <div><%#= image_tag('redlike.png') %></div>-->
+        <!--            <div class="custom-text-styles">2h</div>-->
+        <!--          </div>-->
+        <!--        </div>-->
+        <!--        <hr size="1" width="100%" color="lightgrey">-->
+        <!--      </div>-->
+        <!--COMMENTS END-->
 
 
-    </div>
+      </div>
 
-      <% else if current_user.id == article.user_id || article.status == 'public'  %>
+    <% else
+         if current_user.id == article.user_id || article.status == 'public' %>
         <div class="post1">
           <div class="post1-heading-dropdown">
-            <div ><h3>
+            <div><h3>
               <%= article.user.firstname %> <%= article.user.lastname %>
 
             </h3></div>
@@ -121,32 +132,40 @@
               </div>
 
 
-
             </div>
 
           </div>
 
           <div class="align-text-right custom-text-styles"><strong><%= time_ago_in_words(article.created_at)
           %>  ago.  <%= article.status %> </strong></div>
-          <div class="align-text-right" ><p class="post-content"><%= link_to article.body, article %></p>
+          <div class="align-text-right"><p class="post-content"><%= link_to article.body, article %></p>
           </div>
           <div class="likes-comments-container align-text-right">
             <div class="likes-comments-count">
-              <div class="custom-text-styles">2 likes</div>
+              <div class="custom-text-styles"><%= article.likes.count %> likes</div>
               <div class="custom-text-styles">  <%= article.comments.size %> comments</div>
 
             </div>
             <hr size="1" width="100%" color="lightgrey">
             <div class="likes-comments">
               <div><%= image_tag('like.png') %></div>
-              <div class="custom-text-styles">Like</div>
+              <div class="custom-text-styles likes-button">
+                <!--likes start-->
+                <% pre_like = article.likes.find { |like| like.user_id == current_user.id } %>
+                <% if pre_like %>
+                  <%= button_to 'Unlike', article_like_path(article, pre_like), method: :delete %>
+                <% else %>
+                  <%= button_to 'Like', article_likes_path(article), method: :post %>
+                <% end %>
+                <!--like end-->
+              </div>
               <div><%= image_tag('comment.png') %></div>
               <div class="custom-text-styles"><%= link_to "Comment", article %></div>
             </div>
             <hr size="1" width="100%" color="lightgrey">
 
             <div>
-              <% @article=article %>
+              <% @article = article %>
               <%= render 'comments/form' %>
 
 
@@ -155,31 +174,30 @@
           </div>
 
           <!--COMMENTS START-->
-<!--          <div class="align-text-right custom-text-styles ">-->
-            <!--        <h2>Comments</h2>-->
-            <!--  comment1-->
-<!--            <hr size="1" width="100%" color="lightgrey">-->
-<!--            <div class="style-comments-view">-->
+          <!--          <div class="align-text-right custom-text-styles ">-->
+          <!--        <h2>Comments</h2>-->
+          <!--  comment1-->
+          <!--            <hr size="1" width="100%" color="lightgrey">-->
+          <!--            <div class="style-comments-view">-->
 
-<!--              <div class="align-text-right custom-text-styles">-->
+          <!--              <div class="align-text-right custom-text-styles">-->
           <div class="index-comment-color"><%= article.comments.order("created_at DESC").first&.body %></div>
 
 
-
-<!--              </div>-->
-              <!--          <div class=" comments-page-likes-time">-->
-              <!--            <div><%#= image_tag('redlike.png') %></div>-->
-              <!--            <div class="custom-text-styles">2h</div>-->
-              <!--          </div>-->
-<!--            </div>-->
-<!--            <hr size="1" width="100%" color="lightgrey">-->
-<!--          </div>-->
+          <!--              </div>-->
+          <!--          <div class=" comments-page-likes-time">-->
+          <!--            <div><%#= image_tag('redlike.png') %></div>-->
+          <!--            <div class="custom-text-styles">2h</div>-->
+          <!--          </div>-->
+          <!--            </div>-->
+          <!--            <hr size="1" width="100%" color="lightgrey">-->
+          <!--          </div>-->
           <!--COMMENTS END-->
 
 
         </div>
       <% end %>
-      <% end %>
+    <% end %>
   <% end %>
   <!--  POST LOOP END-->
 
@@ -189,16 +207,27 @@
 
 <!--left side navbar start-->
 <div class="leftside-navbar">
-  <div><button  type="button" class="btn btn-outline-primary btn-lg  bootstrap-button bootstrap-button-feed" style=" border: none;"><%= image_tag('feed.1.png') %>&nbsp;&nbsp; <span>Feed</span></button></div>
   <div>
-    <a href="http://localhost:3000/users/edit">    <button type="button" class="btn btn-outline-primary btn-lg  bootstrap-button bootstrap-button-profile" style=" border: none;"><%= image_tag('profile.png') %>&nbsp;&nbsp; <span>Profile</span></button></a>
+    <button type="button" class="btn btn-outline-primary btn-lg  bootstrap-button bootstrap-button-feed" style=" border: none;"><%= image_tag('feed.1.png') %>&nbsp;&nbsp;
+      <span>Feed</span></button>
+  </div>
+  <div>
+    <a href="http://localhost:3000/users/edit">
+      <button type="button" class="btn btn-outline-primary btn-lg  bootstrap-button bootstrap-button-profile" style=" border: none;"><%= image_tag('profile.png') %>&nbsp;&nbsp;
+        <span>Profile</span></button>
+    </a>
   </div>
   <% if current_user.has_role? :admin %>
-  <div>
-    <a href="http://localhost:3000/users"> <button type="button" class="btn btn-outline-primary btn-lg  bootstrap-button bootstrap-button-manageuser" style=" border: none;"><%= image_tag('manageUser.png') %>&nbsp;&nbsp; <span>Manage Users  </span></button></a>
+    <div>
+      <a href="http://localhost:3000/users">
+        <button type="button" class="btn btn-outline-primary btn-lg  bootstrap-button bootstrap-button-manageuser" style=" border: none;"><%= image_tag('manageUser.png') %>&nbsp;&nbsp;
+          <span>Manage Users  </span></button>
+      </a>
+    </div>
+  <% end %>
+  <div class="logooout">
+    <span><%= image_tag('logout.png') %></span><%= link_to "Log Out", destroy_user_session_path, 'data-turbo-method': :delete, class: "btn btn-outline-primary bootstrap-logout" %>
   </div>
-    <% end %>
-  <div class="logooout"><button type="button" class="btn btn-outline-primary btn-lg  bootstrap-button" style=" border: none;"><%= image_tag('logout.png') %><span><%= link_to "Log Out", destroy_user_session_path, 'data-turbo-method': :delete%></span></button></div>
 </div>
 
 <!--left side navbar end-->
@@ -212,16 +241,16 @@
     <div><strong>...</strong></div>
   </div>
   <% if current_user.has_role? :admin %>
-  <% User.all.each do |user| %>
+    <% User.all.each do |user| %>
 
-  <div class="rightside-Users">
-    <div style="margin-right: 20px"> <%= image_tag('Vector.jpg') %> </div>
-    <%= user.firstname  %>
-    <%= user.lastname  %>
+      <div class="rightside-Users">
+        <div style="margin-right: 20px"> <%= image_tag('Vector.jpg') %> </div>
+        <%= user.firstname %>
+        <%= user.lastname %>
 
-  </div>
-<% end %>
+      </div>
     <% end %>
+  <% end %>
 </div>
 
 <!--right side navbar end-->

@@ -40,14 +40,15 @@
     </div>
     <div class="likes-comments-container align-text-right">
       <div class="likes-comments-count">
-        <div class="custom-text-styles">2 likes</div>
+        <div class="custom-text-styles"><%= @article.likes.count %></div>
         <div class="custom-text-styles"> <%= @article.comments.size %> comments</div>
 
       </div>
       <hr size="1" width="100%" color="lightgrey">
       <div class="likes-comments">
         <div><%= image_tag('like.png') %></div>
-        <div class="custom-text-styles">Like</div>
+        <div class="custom-text-styles">Like
+        </div>
         <div><%= image_tag('comment.png') %></div>
         <div class="custom-text-styles">Comment</div>
       </div>
