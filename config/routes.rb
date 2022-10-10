@@ -3,13 +3,14 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [:index] do
+    collection{ post :import}
     get '/new', to: "users#new"
     post '/new', to: "users#create" , as:'user_create'
-
-    collection { post :import}
+    # get '/upload', to: "users#import", as: 'upload_user'
     member do
       get :confirm_email
     end
+
     member do
       patch :ban
     end
@@ -22,5 +23,6 @@ Rails.application.routes.draw do
 
     # match '/users', to: 'users#index', via: 'get'
   end
+  get '/upload_users', to: "users#import_page", as: 'upload_user_page'
 
 end

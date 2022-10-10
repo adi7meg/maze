@@ -3,9 +3,25 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+
+  def import
+  User.import(params[:file])
+  flash[:notice] = "Users Uploaded Sucessfully"
+  redirect_to root_path
+
+  end
+
+  def import_page
+    @users = User.all
+  end
+
+
+
   def new
     @users = User.new
   end
+
+
   def create
 
 
