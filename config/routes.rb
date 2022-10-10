@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   resources :users, only: [:index] do
     get '/new', to: "users#new"
     post '/new', to: "users#create" , as:'user_create'
+
+    collection { post :import}
+    member do
+      get :confirm_email
+    end
     member do
       patch :ban
     end

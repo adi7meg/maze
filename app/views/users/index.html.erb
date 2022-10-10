@@ -39,7 +39,10 @@
 
     <div>
 
-      <div><%= image_tag('u.png') %>&nbsp;&nbsp; <span class="create-user-button"><%= link_to 'Create User', user_new_path(@users), class:"btn btn-primary", style:"border-radius:25px" %></span></div>
+      <div>
+        <button type="button" class="btn btn-outline-info" style="border-radius: 14px">Upload Users</button>
+        <%= image_tag('u.png') %>&nbsp;&nbsp; <span class="create-user-button"><%= link_to 'Create User', user_new_path(@users), class:"btn btn-primary", style:"border-radius:25px" %></span>
+      </div>
     </div>
   </div>
   <% @users.each do |user| %>
