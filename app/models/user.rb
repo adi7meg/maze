@@ -2,20 +2,6 @@ class User < ApplicationRecord
   # before_create :confirmation_token
   rolify
 
-
-  # def self.import(file)
-  #   CSV.foreach(file.path, headers: true) do |row|
-  #
-  #     user_hash = User.new
-  #     user_hash.firstname = row[0]
-  #     user_hash.lastname = row[1]
-  #     user_hash.email = row[2]
-  #     user_hash.phone = row[3]
-  #     user_hash.password = row[4]
-  #     user_hash.save
-  #   end
-  # end
-
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
      User.create! row.to_hash

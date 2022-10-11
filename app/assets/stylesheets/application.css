@@ -803,3 +803,17 @@ body{
 .create-user-role{
 
 }
+
+.uploading-button button{
+    text-decoration: none;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 17px;
+    color: #F9FAFB;
+    border: none;
+    background: #377DFF;
+    border-radius: 14px;
+    width: 173px;
+    height: 39px;
+}
+

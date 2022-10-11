@@ -40,8 +40,7 @@
     <div>
 
       <div>
-        <button type="button" class="btn btn-outline-info" style="border-radius: 14px">Upload Users</button>
-        <%= link_to "upload users", upload_user_page_path(@users)  %>
+         <span class="create-user-button"> <%= link_to "Upload Users", upload_user_page_path(@users), class:"btn btn-primary", style:"border-radius:25px"  %></span>
         <%= image_tag('u.png') %>&nbsp;&nbsp; <span class="create-user-button"><%= link_to 'Create User', user_new_path(@users), class:"btn btn-primary", style:"border-radius:25px" %></span>
       </div>
     </div>
@@ -83,67 +82,3 @@
   <div class="logooout"><span><%= image_tag('logout.png') %></span><%= link_to "Log Out", destroy_user_session_path, 'data-turbo-method': :delete, class:"btn btn-outline-primary bootstrap-logout"%></div>
 </div>
 
-
-
-
-
-
-
-
-
-
-<%#=flash[:notice]%>
-
-<table>
-
-  <thead>
-
-  <th>firstname</th>
-
-  <th>lastname</th>
-
-  <th>email</th>
-
-  <th>phone</th>
-
-  <th>password</th>
-
-  </thead>
-
-  <tbody>
-
-  <%@users.each do |user|%>
-
-    <tr>
-
-      <td><%=user.firstname %></td>
-
-      <td><%=user.lastname%></td>
-
-      <td><%=user.email%></td>
-
-      <td><%=user.phone%></td>
-
-      <td><%=user.password%></td>
-
-    </tr>
-
-  <%end%>
-
-  </tbody>
-
-</table>
-
-<div>
-
-  <h3> Import User Data </h3>
-
-  <%=form_tag import_users_path, multipart: true do %>
-
-    <%=file_field_tag :file%>
-
-    <%=submit_tag %>
-
-  <%end%>
-
-</div>
