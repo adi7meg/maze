@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
-  # require 'sidekiq/web'
-  # mount Sidekiq::Web => '/sidekiq'
-
+  require 'sidekiq/web'
+  # only Admin can use it (Dhawal having id=1)
+  authenticate :user, ->(u) {u.id == 1} do
+  mount Sidekiq::Web => '/sidekiq'
+  end
 
   # get 'users/index'
   devise_for :users
@@ -15,7 +17,6 @@ Rails.application.routes.draw do
     member do
       get :confirm_email
     end
-
     member do
       patch :ban
     end

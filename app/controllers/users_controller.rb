@@ -3,12 +3,14 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-
+  def create_user
+    CreateBulkUserJob.perform_later
+    redirect_to root_path
+  end
   def import
   User.import(params[:file])
   flash[:notice] = "Users Uploaded Sucessfully"
-  redirect_to root_path
-
+  redirect_to users_path
   end
 
   def import_page
