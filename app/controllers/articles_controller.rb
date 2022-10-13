@@ -17,6 +17,7 @@ class ArticlesController < ApplicationController
     @article.user_id = current_user.id
 
     if @article.save
+      flash[:notice] = "Post Created Sucessfully"
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity
@@ -40,7 +41,7 @@ class ArticlesController < ApplicationController
   def destroy
     @article = Article.find(params[:id])
     @article.destroy
-
+    flash[:notice] = "Post Deleted Sucessfully"
     redirect_to root_path, status: :see_other
   end
 

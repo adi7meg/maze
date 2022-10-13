@@ -3,7 +3,7 @@ class CreateBulkUserJob < ApplicationJob
 
   def perform(*args)
     # Do something later
-    # puts "Lets Refresh our create bulk users"
+    puts "Lets Refresh our create bulk users"
     # raise 'hell'
 
     # def import

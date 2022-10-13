@@ -75,3 +75,4 @@ end
 
 gem 'sidekiq'
 gem "roo", "~> 2.7.0"
+gem "letter_opener", group: :development

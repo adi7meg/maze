@@ -1,3 +1,11 @@
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, class: "alert alert-info" %>
+<% end %>
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, class: "alert alert-danger" %>
+<% end %>
+
+
 <%= render 'layouts/navbar' %>
 
 <div class="main">

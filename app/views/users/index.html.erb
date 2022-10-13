@@ -1,3 +1,9 @@
+<%#=flash[:notice]%>
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, class: "alert alert-info" %>
+<% end %>
+
+
 <!--navbar-->
 <div class="header">
   <div class="header1" style=" width: 150px;display: flex;justify-content: space-around;align-items: center;margin: 25px;">
@@ -78,6 +84,6 @@
   <% if current_user.has_role? :admin %>
     <div><button type="button" class="btn btn-outline-primary btn-lg  bootstrap-button bootstrap-button-manageuser" style=" border: none;"><%= image_tag('manageUser.png') %>&nbsp; &nbsp;<span><a href="http://localhost:3000/users">Manage Users</a></span></button></div>
   <% end %>
-  <div class="logooout"><span><%= image_tag('logout.png') %></span><%= link_to "Log Out", destroy_user_session_path, 'data-turbo-method': :delete, class:"btn btn-outline-primary bootstrap-logout"%></div>
+<!--  <div class="logooout"><span><%#= image_tag('logout.png') %></span><%#= link_to "Log Out", destroy_user_session_path, 'data-turbo-method': :delete, class:"btn btn-outline-primary bootstrap-logout"%></div>-->
 </div>
 
